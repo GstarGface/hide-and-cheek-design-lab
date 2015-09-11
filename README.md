@@ -14,7 +14,6 @@ Design Lab is scheduled to launch in September 2015 in collaboration with <a hre
   <li>Non-caching images that persist between pages, keeping the current style visible to the customer.</li>
   <li>Admin portal for the shop manager owner to maintain their inventory database; add, edit and discontinue the product's styles, fabrics, colors, sizes, etc. </li>
   <li>Admin portal dashboard displaying Google Analytics Usage data.</li>
-  <li>Embedded Shopify checkout.</li>
 </ul>
 
 <h3><strong>Technologies Used</strong></h3>
