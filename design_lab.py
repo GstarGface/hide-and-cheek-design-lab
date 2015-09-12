@@ -21,7 +21,8 @@ app = Flask(__name__)
 
 
 # Required to use Flask sessions and the debug toolbar
-app.secret_key = "ommmnamasteshantishantishanti" 
+# app.secret_key = "ommmnamasteshantishantishanti" 
+app.config['SECRET_KEY'] = os.environ.get("FLASK_SECRET_KEY", "dev")
 
 
 app.jinja_env.globals.update(time=time)
