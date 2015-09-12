@@ -214,7 +214,7 @@ class Order(db.Model):
 def connect_to_db(app):
 	"""Connects db to flask app."""
 
-	app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://georgia@localhost/designlab'
+	app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://georgia@localhost/designlab')
 	db.app = app
 	db.init_app(app)
 
