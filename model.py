@@ -1,4 +1,5 @@
 """Models and database functions for DesignLab"""
+import os
 
 from flask_sqlalchemy import SQLAlchemy 
 
