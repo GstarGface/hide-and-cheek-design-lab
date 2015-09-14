@@ -64,9 +64,10 @@ $(document).ready( function(){
 			// edits the pant color
 			highWaist.setAttribute('fill', current_design.color_hex);
 			lowWaist.setAttribute('fill', current_design.color_hex);
-			obj.style.visibility = "visible";
-			document.getElementById('wait').style.visibility = "hidden";
-
+			setTimeout(function(){
+				$('#wait').hide();
+				obj.style.visibility = "visible";
+			}, 1500);
 		});
 	});
     $.get('/selections.json', function (data) {
