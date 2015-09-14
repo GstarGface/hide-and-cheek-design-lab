@@ -8,8 +8,9 @@
 
 
 <div class="row build">
-	<div class="col-xs-6 col-md-5 design">
-		<object class="design" id="design-object" data="/static/svg/{{session['current_design']['style_svg']}}?no-cache={{time()}}" alt="current design model"></object>
+	<div class="col-xs-6 col-md-5 design" id="model">
+		<h3 id="wait"> Hold tight while we finish up your design!</h3>
+		<object style="visibility: hidden;" class="design" id="design-object" data="/static/svg/{{session['current_design']['style_svg']}}?no-cache={{time()}}" alt="current design model"></object>
 		
 	</div>
 	<div class="col-xs-5 col-md-5 col-lg-4">
@@ -25,22 +26,12 @@
 			<li id ="thread" class="list-group-item"> <b class="summary">THREAD COLOR : </b> </li>
 			<li id ="text" class="list-group-item"> <b class="summary">TAG TEXT : </b> </li>
 		</ul>
-		<div id='flash'></div>
 		<div id="added">
-			<div class="add" data-embed_type="product" data-shop="hide-cheek.myshopify.com" data-product_name="Custom Yoga Pants  #hncbyme" data-product_handle="hncbyme-design-lab" data-has_image="false" data-display_size="compact" data-redirect_to="cart" data-buy_button_text="ADD TO CART ! " data-button_background_color="f9b597" data-button_text_color="ffffff"></div>
-			<script type="text/javascript">
-				document.getElementById('ShopifyEmbedScript') || document.write('<script type="text/javascript" src="https://widgets.shopifyapps.com/assets/widgets/embed/client.js" id="ShopifyEmbedScript"><\/script>');
-			</script>
-			<noscript><a href="https://hide-cheek.myshopify.com/cart/6572253123:1" target="_blank">Buy Custom Yoga Pants  #hncbyme</a></noscript>
+			<button class="add btn-editorial" id="add"> Add to cart!</button>
 		</div>
 	</div>
 </div>
 </div>
-
-<div data-checkout_button_text="Checkout" data-cart_button_text="Cart" data-button_text_color="ffffff" data-button_background_color="7ae6f0" data-background_color="ffffff" data-text_color="000000" data-accent_color="767676" data-cart_title="Cart" data-sticky="true" data-embed_type="cart" data-shop="hide-cheek.myshopify.com"></div>
-<script type="text/javascript">
-document.getElementById('ShopifyEmbedScript') || document.write('<script type="text/javascript" src="https://widgets.shopifyapps.com/assets/widgets/embed/client.js" id="ShopifyEmbedScript"><\/script>');
-</script>
 
 <script type="text/javascript" src="static/js/jquery-2.1.4.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
@@ -50,6 +41,7 @@ $(document).ready( function(){
 	// loads selections via JSON
 	$.get('/current-design.json', function (current_design) {
 		console.log(current_design);
+		
 		$(window).load(function (){
 			var obj = document.getElementById("design-object");
 			var objData = obj.contentDocument;
@@ -72,6 +64,9 @@ $(document).ready( function(){
 			// edits the pant color
 			highWaist.setAttribute('fill', current_design.color_hex);
 			lowWaist.setAttribute('fill', current_design.color_hex);
+			obj.style.visibility = "visible";
+			document.getElementById('wait').style.visibility = "hidden";
+
 		});
 	});
     $.get('/selections.json', function (data) {
@@ -105,7 +100,8 @@ $(document).ready( function(){
 		    success: function(resp) {
 		    	console.log(resp.status);
 			      //display message back to user here
-			    $('#flash').html("<h4> Sweet! Your design has been added to the cart.</h4>").append("<a class='btn-editorial' href='/newDesign'> create new design </a>").hide().fadeIn(1500, function() {
+			    $('#added').html("<div id='flash'></div>");
+			    $('#flash').html("<h4> Sweet! Your design has been added to the cart.</h4>").append("<a class='btn-modal' href='/newDesign'> create new design </a>").hide().fadeIn(1500, function() {
 			  		});
 		    }
 		});
