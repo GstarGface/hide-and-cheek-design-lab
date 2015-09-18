@@ -13,11 +13,12 @@ Design Lab is scheduled to launch in September 2015 in collaboration with <a hre
   <li>Dynamically generated images that change according to cunsumers' style decisions.</li>
   <li>Non-caching images that persist between pages, keeping the current style visible to the customer.</li>
   <li>Admin portal for the shop manager owner to maintain their inventory database; add, edit and discontinue the product's styles, fabrics, colors, sizes, etc. </li>
-  <li>Admin portal dashboard displaying Google Analytics Usage data.</li>
+  <li>Admin portal dashboard  to display Google Analytics Usage data.</li>
+  <li><i>Version 2.0 to integrate Stripe for checkout/payment</i></li>
 </ul>
 
 <h3><strong>Technologies Used</strong></h3>
-Design Lab is written in Python 2.7, JavaScript, and HTML5/CSS3 with the use of PostgreSQL, Flask, jQuery, AJAX/JSON, Jinja2, Bootstrap.js, and SQLAlchemy. The Admin portal utilizes the Flask-Admin library and highcharts.js The lookbook is generated with Instagram images. Shopping cart integration via Shopify. 
+Design Lab is written in Python 2.7, JavaScript, and HTML5/CSS3 with the use of PostgreSQL, Flask, jQuery, AJAX/JSON, Jinja2, Bootstrap.js, and SQLAlchemy. The Admin portal utilizes the Flask-Admin library and highcharts.js The lookbook is generated with Instagram images. Shopping cart integration via Shopify (* soon to be replaced with Stripe). 
 
 <h3><strong>Environment</strong></h3>
 
